@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MVCCORE_PL_GODREJ.Models.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New Employee</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-hide">
+                Employee Id
+            </th>
+            <th>  First Name       </th>
+            <th>  Last Name         </th>
+            <th>  Date Of Birth     </th>
+            <th>  Phone Number      </th>
+            <th>  Email    </th>
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td class="text-hide">    @employee.EmployeeId      </td>
+                <td>    @employee.FirstName       </td>
+                <td>    @employee.LastName        </td>
+                <td>    @employee.DateOfBirth      </td>
+                <td>    @employee.PhoneNumber      </td>
+                <td>    @employee.Email           </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@employee.EmployeeId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
